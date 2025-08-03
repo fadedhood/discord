@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting to Discord</title>
+    
+    <!-- Ubuntu Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            background-color: #000000; /* Pitch black background */
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 10px;
+            background-color: #111111; /* Very dark background */
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.15);
+            max-width: 90%;
+            width: 500px;
+            transition: transform 0.3s ease;
+        }
+        
+        .container:hover {
+            transform: translateY(-5px);
+        }
+        
+        .logo {
+            color: #ff0000; /* Red color */
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+        
+        h1 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            background: linear-gradient(45deg, #ff0000, #cc0000);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        p {
+            font-weight: 300;
+            margin-bottom: 2rem;
+            color: #dcddde;
+        }
+        
+        .redirect-link {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff0000, #cc0000);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5);
+        }
+        
+        .redirect-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(255, 0, 0, 0.7);
+        }
+        
+        .redirect-link i {
+            margin-right: 0.5rem;
+        }
+        
+        .countdown {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #a3a6aa;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .made-with {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.8rem;
+            color: #72767d;
+        }
+    </style>
+</head>
+<body>
+    <!-- Replace this URL with your actual Discord invite link -->
+    <script>
+        // Set your Discord invite URL here
+        const discordUrl = "https://discord.gg/kvAZvdkuuN";
+        
+        // Redirect after a short delay
+        let secondsLeft = 5;
+        
+        window.onload = function() {
+            updateCountdown();
+            
+            const interval = setInterval(function() {
+                secondsLeft--;
+                updateCountdown();
+                
+                if (secondsLeft <= 0) {
+                    clearInterval(interval);
+                    window.location.href = discordUrl;
+                }
+            }, 1000);
+        };
+        
+        function updateCountdown() {
+            const countdownElement = document.getElementById("countdown");
+            countdownElement.textContent = `Redirecting in ${secondsLeft} second${secondsLeft !== 1 ? 's' : ''}...`;
+        }
+    </script>
+    
+    <div class="container">
+        <div class="logo">
+            <i class="fab fa-discord"></i>
+        </div>
+        <h1>Join Our Discord</h1>
+        <p>You're being redirected to our Discord server. If you aren't redirected automatically, click the button below.</p>
+        <a href="https://discord.gg/kvAZvdkuuN" class="redirect-link">
+            <i class="fas fa-external-link-alt"></i> Join Now
+        </a>
+        <div class="countdown" id="countdown">
+            Redirecting in 5 seconds...
+        </div>
+    </div>
+    
+    <div class="made-with">
+        discord.faded.dev
+    </div>
+</body>
+</html>
