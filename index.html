@@ -5,6 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FadSec Lab Discord Invite</title>
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://discord.faded.dev/">
+    <meta property="og:title" content="You've been invited to FadSec Lab Discord">
+    <meta property="og:description" content="Welcome to the FadSec Lab Discord community! Connect, learn, and collaborate with cybersecurity enthusiasts and experts.">
+    <meta property="og:image" content="https://discord.faded.dev/assets/img/banner.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="FadSec Lab">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://discord.faded.dev/">
+    <meta property="twitter:title" content="You've been invited to FadSec Lab Discord">
+    <meta property="twitter:description" content="Welcome to the FadSec Lab Discord community! Connect, learn, and collaborate with cybersecurity enthusiasts and experts.">
+    <meta property="twitter:image" content="https://discord.faded.dev/assets/img/banner.png">
+    
+    <!-- Discord -->
+    <meta name="theme-color" content="#ff0000">
+    <meta name="description" content="Welcome to the FadSec Lab Discord community! Connect, learn, and collaborate with cybersecurity enthusiasts and experts.">
     <!-- Ubuntu Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +40,7 @@
         }
         body {
             font-family: 'Ubuntu', sans-serif;
-            background: #000000;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 50%, #000 100%);
             color: #fff;
             min-height: 100vh;
             display: flex;
@@ -27,6 +48,109 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
+            position: relative;
+        }
+        
+        /* Animated background grid */
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 0, 0, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 0, 0.1) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: gridMove 20s linear infinite;
+            opacity: 0.3;
+            z-index: 0;
+        }
+        
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(60px, 60px); }
+        }
+        
+        /* Glowing orbs */
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: float 6s ease-in-out infinite;
+            z-index: 0;
+        }
+        
+        .orb-1 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 0, 0, 0.4) 0%, rgba(255, 0, 0, 0) 70%);
+            top: -100px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+        
+        .orb-2 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(220, 38, 127, 0.3) 0%, rgba(220, 38, 127, 0) 70%);
+            bottom: -50px;
+            left: -50px;
+            animation-delay: 2s;
+        }
+        
+        .orb-3 {
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(255, 20, 20, 0.5) 0%, rgba(255, 20, 20, 0) 70%);
+            top: 50%;
+            left: 10%;
+            animation-delay: 4s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-20px) scale(1.1); }
+        }
+        
+        /* Tech lines */
+        .tech-lines {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.4), transparent);
+            height: 2px;
+            animation: moveLine 8s linear infinite;
+        }
+        
+        .line-1 {
+            top: 20%;
+            width: 200px;
+            animation-delay: 0s;
+        }
+        
+        .line-2 {
+            top: 60%;
+            width: 300px;
+            animation-delay: 3s;
+        }
+        
+        .line-3 {
+            top: 80%;
+            width: 150px;
+            animation-delay: 6s;
+        }
+        
+        @keyframes moveLine {
+            0% { left: -300px; opacity: 0; }
+            50% { opacity: 1; }
+            100% { left: 100%; opacity: 0; }
         }
         
         ::selection {
@@ -54,7 +178,7 @@
         }
         .container {
             position: relative;
-            z-index: 2;
+            z-index: 10;
             text-align: center;
             padding: 3rem 2.5rem 2rem 2.5rem;
             border-radius: 24px;
@@ -199,6 +323,19 @@
     </style>
 </head>
 <body>
+    <!-- Animated background elements -->
+    <div class="grid-overlay"></div>
+    
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+    
+    <div class="tech-lines">
+        <div class="line line-1"></div>
+        <div class="line line-2"></div>
+        <div class="line line-3"></div>
+    </div>
+    
     <div class="mouse-circle" id="mouseCircle"></div>
     <div class="container">
         <div class="logo">
