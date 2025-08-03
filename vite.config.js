@@ -1,7 +1,9 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
+import { ogImagePlugin } from './vite-plugins/og-image-plugin.js'
 
 export default defineConfig({
+  plugins: [ogImagePlugin()],
   root: '.',
   publicDir: false, // Disable automatic public dir copying
   build: {
