@@ -1,0 +1,287 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Ubuntu', sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 50%, #000 100%);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Animated background grid */
+.grid-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(255, 0, 0, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.1) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gridMove 20s linear infinite;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+@keyframes gridMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(60px, 60px); }
+}
+
+/* Glowing orbs */
+.glow-orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: float 6s ease-in-out infinite;
+    z-index: 0;
+}
+
+.orb-1 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.4) 0%, rgba(255, 0, 0, 0) 70%);
+    top: -100px;
+    right: -100px;
+    animation-delay: 0s;
+}
+
+.orb-2 {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(220, 38, 127, 0.3) 0%, rgba(220, 38, 127, 0) 70%);
+    bottom: -50px;
+    left: -50px;
+    animation-delay: 2s;
+}
+
+.orb-3 {
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(255, 20, 20, 0.5) 0%, rgba(255, 20, 20, 0) 70%);
+    top: 50%;
+    left: 10%;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-20px) scale(1.1); }
+}
+
+/* Tech lines */
+.tech-lines {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.line {
+    position: absolute;
+    background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.4), transparent);
+    height: 2px;
+    animation: moveLine 8s linear infinite;
+}
+
+.line-1 {
+    top: 20%;
+    width: 200px;
+    animation-delay: 0s;
+}
+
+.line-2 {
+    top: 60%;
+    width: 300px;
+    animation-delay: 3s;
+}
+
+.line-3 {
+    top: 80%;
+    width: 150px;
+    animation-delay: 6s;
+}
+
+@keyframes moveLine {
+    0% { left: -300px; opacity: 0; }
+    50% { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+}
+
+::selection {
+    background: rgba(255, 0, 0, 0.3);
+    color: #fff;
+}
+
+::-moz-selection {
+    background: rgba(255, 0, 0, 0.3);
+    color: #fff;
+}
+
+.mouse-circle {
+    position: fixed;
+    pointer-events: none;
+    left: 0; top: 0;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,0,0,0.2) 0%, rgba(255,0,0,0.08) 60%, transparent 100%);
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    transition: all 0.3s ease;
+    filter: blur(8px);
+}
+.container {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 3rem 2.5rem 2rem 2.5rem;
+    border-radius: 24px;
+    background: rgba(15, 15, 15, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        0 8px 32px 0 rgba(255,0,0,0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    max-width: 95vw;
+    width: 480px;
+    margin: 0 auto;
+}
+.logo {
+    color: #ff0000;
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
+    animation: pulse 2s infinite;
+    filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.5));
+}
+
+h1 {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    background: linear-gradient(45deg, #ff0000, #cc0000);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+p {
+    font-weight: 400;
+    margin-bottom: 2.5rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.redirect-link {
+    display: inline-block;
+    background: linear-gradient(45deg, #ff0000, #cc0000);
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 6px 20px rgba(255, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+.redirect-link:hover {
+    box-shadow: 
+        0 8px 25px rgba(255, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px) scale(1.02);
+}
+.redirect-link i {
+    margin-right: 0.5rem;
+}
+.footer-img {
+    display: block;
+    margin: 3rem auto 0 auto;
+    max-width: 180px;
+    width: 65%;
+    opacity: 0.8;
+    filter: drop-shadow(0 4px 16px rgba(255,0,0,0.2));
+    transition: opacity 0.3s ease;
+}
+
+.footer-img:hover {
+    opacity: 1;
+}
+
+.discord-link {
+    margin-top: 1.8rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    border-radius: 12px;
+    color: #ff3333;
+    font-size: 0.95rem;
+    font-family: 'Ubuntu Mono', monospace;
+    backdrop-filter: blur(10px);
+    word-break: break-all;
+}
+.made-with {
+    text-align: center;
+    margin-top: 1.2rem;
+    font-size: 0.9rem;
+    color: #72767d;
+    letter-spacing: 0.05em;
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+@media (max-width: 600px) {
+    .container {
+        padding: 2rem 0.7rem 1.2rem 0.7rem;
+        border-radius: 16px;
+        width: 98vw;
+        min-width: 0;
+        max-width: 99vw;
+    }
+    .logo {
+        font-size: 2.7rem;
+        margin-bottom: 1rem;
+    }
+    h1 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+    p {
+        font-size: 0.98rem;
+        margin-bottom: 1.2rem;
+        max-width: 98vw;
+    }
+    .redirect-link {
+        padding: 0.7rem 1.2rem;
+        font-size: 1rem;
+    }
+    .footer-img {
+        max-width: 110px;
+        width: 80%;
+        margin-top: 2rem;
+    }
+    .discord-link {
+        font-size: 0.85rem;
+        padding: 0.7rem;
+    }
+}

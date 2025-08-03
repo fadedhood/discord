@@ -1,3 +1,6 @@
+// Import CSS for cache busting
+import './banner.css'
+
 // Import assets for cache busting in banner
 import logoUrl from './assets/img/fadseclab.png'
 

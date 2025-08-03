@@ -1,3 +1,6 @@
+// Import CSS for cache busting
+import './style.css'
+
 // Import assets for cache busting
 import faviconUrl from './assets/img/favicon.png'
 import logoUrl from './assets/img/fadseclab.png'
